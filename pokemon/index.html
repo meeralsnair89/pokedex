@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script src="app/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="app/bootstrap.min.js"></script>
+<script src="app/poke.js"></script>
+<link  rel="stylesheet" href="app/customized_bootstrap.css"></link>
+<link  rel="stylesheet" href="app/bootstrap.min.css"></link>
+
+</head>
+<body>
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                 <a class="navbar-brand" href="#">Pokemon Pokedex</a>
+            </div>
+            
+            
+        </div>
+        
+    </nav>
+	 <div class="container">
+
+        <div class="row">
+		  <div class="col-md-12 tablestart">
+<div ng-app='myApp'>
+    <div ng-controller='DataCtrl'>
+<form>
+    <div class="form-group filtertable">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control" placeholder="Search pokemon" ng-model="searchPoke">
+      </div>      
+    </div>
+  </form>
+        <div class="panel-body">
+       <table class="table table-condensed" style="border-collapse:collapse;">
+			 <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ID</th> 
+                    <th>Theme</th>                
+                </tr>
+            </thead>
+			<tbody ng-repeat="item in items| filter:searchPoke">
+                <tr data-toggle="collapse" data-target="#{{item.id}}" class="accordion-toggle">
+                    <td>{{item.ename}}</td>
+                    <td>{{item.id}}</td>
+					<td><img width="30px" height="30px" src="./assets/images/img/{{item.id}}{{item.ename}}.png" /></td>
+                </tr>
+			<tr>
+                        <td colspan="3" class="hiddenRow"><div id="{{item.id}}" class="accordian-body collapse">Demo2</div></td>
+
+        </tr>
+				</tbody>
+            </table>
+        </div>
+		   </div>
+</div>
+    </div>
+</div>
+</div>
+ </body>
+</html> 
